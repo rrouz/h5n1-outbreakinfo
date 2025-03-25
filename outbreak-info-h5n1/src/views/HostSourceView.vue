@@ -12,7 +12,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import {BarChart} from 'outbreakInfo';
+import { BarChart } from 'outbreakInfo';
 import { getHostDistribution } from '../services/postgresApi.js';
 
 const displayLimit = ref(20);
@@ -27,7 +27,7 @@ onMounted(loadData);
 </script>
 
 <style scoped>
-.isolation-view {
+.host-view {
   max-width: 1000px;
   margin: 0 auto;
   padding: 1rem;
