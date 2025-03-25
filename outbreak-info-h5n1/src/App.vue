@@ -4,7 +4,8 @@
       <h1>H5N1</h1>
       <nav>
         <router-link to="/isolations">Isolation Sources</router-link> | 
-        <router-link to="/hosts">Hosts</router-link>
+        <router-link to="/hosts">Hosts</router-link> |
+        <router-link to="/DMS">DMS</router-link>
       </nav>
     </header>
     
