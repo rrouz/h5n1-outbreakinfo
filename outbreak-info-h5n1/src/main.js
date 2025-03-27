@@ -4,6 +4,7 @@ import App from './App.vue'
 import IsolationSourceView from './views/IsolationSourceView.vue'
 import HostView from './views/HostSourceView.vue'
 import DMSView from './views/DMSView.vue'
+import CollectionEndDateView from './views/CollectionEndDateView.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -27,6 +28,11 @@ const router = createRouter({
       path: '/DMS',
       name: 'dms',
       component: DMSView
+    },
+    {
+      path: '/collection-end-dates',
+      name: 'collection-end-dates',
+      component: CollectionEndDateView
     }
   ]
 })
