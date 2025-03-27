@@ -12,7 +12,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import {BarChart} from 'outbreakInfo';
+import { BarChart } from 'outbreakInfo';
 import { getIsolationSourceDistribution } from '../services/postgresApi.js';
 
 const displayLimit = ref(20);
