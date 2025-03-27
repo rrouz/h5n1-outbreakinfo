@@ -1,6 +1,6 @@
 const ES_BASE_URL = "http://kenny:9200/";
 
-async function makeESQuery(index, query) {
+async function makeRequest(index, query) {
   const endpoint = `${ES_BASE_URL}${index}/_search`;
   const response = await fetch(endpoint, {
     method: 'POST',
@@ -23,7 +23,7 @@ export async function getHostDistribution(size = 20) {
     size: 0
   };
   
-  const response = await makeESQuery("metadata", query);
+  const response = await makeRequest("metadata", query);
   
   const formattedData = response.aggregations.results.buckets.map(item => ({
     key: item.key,
@@ -43,7 +43,7 @@ export async function getIsolationSourceDistribution(size = 20) {
     size: 0
   };
   
-  const response = await makeESQuery("metadata", query);
+  const response = await makeRequest("metadata", query);
   
   const formattedData = response.aggregations.results.buckets.map(item => ({
     key: item.key,
@@ -76,7 +76,7 @@ export async function getIntrahostVariantDMS(dmsField = "ferret sera escape") {
     "size": 0
   };
   
-  return await makeESQuery("variants", query);
+  return await makeRequest("variants", query);
 }
 
 export async function getSampleReleaseDates() {
@@ -89,7 +89,7 @@ export async function getSampleReleaseDates() {
     size: 0
   };
   
-  const response = await makeESQuery("metadata", query);
+  const response = await makeRequest("metadata", query);
   
   return response.aggregations.release_over_time.buckets.map(item => ({
     key: item.key_as_string || item.key,
@@ -113,11 +113,11 @@ export async function getSampleWithMutation(ref_aa, pos_aa, alt_aa, region) {
     size: 10000
   };
   
-  return await makeESQuery("variants", query);
+  return await makeRequest("variants", query);
 }
 
 export async function getTotalCountOfSamples() {
   const query = { size: 0 };
-  const response = await makeESQuery("metadata", query);
+  const response = await makeRequest("metadata", query);
   return response.hits.total.value;
 }
