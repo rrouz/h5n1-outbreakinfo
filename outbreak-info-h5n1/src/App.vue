@@ -5,7 +5,8 @@
       <nav>
         <router-link to="/isolations">Isolation Sources</router-link> | 
         <router-link to="/hosts">Hosts</router-link> |
-        <router-link to="/DMS">DMS</router-link>
+        <router-link to="/DMS">DMS</router-link> |
+        <router-link to="/collection-end-dates">Collection Dates</router-link>
       </nav>
     </header>
     
