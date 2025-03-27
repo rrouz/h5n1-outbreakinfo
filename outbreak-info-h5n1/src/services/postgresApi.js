@@ -1,10 +1,14 @@
-const PG_ISOLATION_ENDPOINT = "http://kenny:8000/count/samples/by/isolation_source";
-const PG_HOST_ENDPOINT = "http://kenny:8000/count/samples/by/host";
+const PG_BASE_URL = "http://kenny:8000/";
+
+async function makeRequest(endpoint) {
+  const url = `${PG_BASE_URL}${endpoint}`;
+  const response = await fetch(url);
+  return await response.json();
+}
 
 export async function getIsolationSourceDistribution(size = 20) {
   try {
-    const response = await fetch(PG_ISOLATION_ENDPOINT);
-    const data = await response.json();
+    const data = await makeRequest("count/samples/by/isolation_source");
     
     const formattedData = Array.isArray(data) 
       ? data.map(item => ({ key: item[0], value: item[1] }))
@@ -20,8 +24,7 @@ export async function getIsolationSourceDistribution(size = 20) {
 
 export async function getHostDistribution(size = 20) {
   try {
-    const response = await fetch(PG_HOST_ENDPOINT);
-    const data = await response.json();
+    const data = await makeRequest("count/samples/by/host");
     
     const formattedData = Array.isArray(data) 
       ? data.map(item => ({ key: item[0], value: item[1] }))
