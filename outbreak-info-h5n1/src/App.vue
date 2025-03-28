@@ -1,39 +1,17 @@
 <template>
   <div id="app">
-    <header>
-      <h1>H5N1 Dashboard</h1>
-    </header>
-    
-    <main>
-      <section class="dashboard-section">
-        <IsolationSourceView />
-      </section>
-      
-      <section class="dashboard-section">
-        <HostSourceView />
-      </section>
-      
-      <section class="dashboard-section">
-        <DMSView />
-      </section>
-      
-      <section class="dashboard-section">
-        <ReleaseDateView />
-      </section>
-    </main>
+    <Header />
+    <router-view />
   </div>
 </template>
 
 <script setup>
-import IsolationSourceView from './views/IsolationSourceView.vue';
-import HostSourceView from './views/HostSourceView.vue';
-import DMSView from './views/DMSView.vue';
-import ReleaseDateView from './views/ReleaseDateView.vue';
+import Header from './components/Header.vue';
 </script>
 
 <style>
 :root {
-  --primary-color: #4682B4;
+  --primary-color: #507192;
   --text-color: #333;
   --background-color: #f5f7fa;
   --section-bg-color: #ffffff;
@@ -47,7 +25,7 @@ import ReleaseDateView from './views/ReleaseDateView.vue';
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'DM Sans', Avenir, Helvetica, Arial, sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
   line-height: 1.6;
