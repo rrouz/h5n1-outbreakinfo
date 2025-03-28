@@ -3,6 +3,7 @@ import IsolationSourceView from '../views/IsolationSourceView.vue'
 import HostSourceView from '../views/HostSourceView.vue'
 import ReleaseDateView from '../views/ReleaseDateView.vue'
 import DMSView from '../views/DMSView.vue'
+import MutationView from '../views/MutationView.vue'
 
 const routes = [
     {
@@ -24,6 +25,11 @@ const routes = [
         path: '/dms',
         name: 'DMS',
         component: DMSView
+    },
+    {
+        path: '/mutations',
+        name: 'Mutations',
+        component: MutationView
     }
 ]
 
