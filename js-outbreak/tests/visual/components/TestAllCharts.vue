@@ -1,4 +1,3 @@
-<!-- src/dev/TestChartsContainer.vue -->
 <template>
     <div class="test-container">
         <h1>Charts Testing Dashboard</h1>
@@ -25,6 +24,10 @@
                     <TestScatterChart />
                 </div>
 
+                <div class="chart-component">
+                  <TestTimeSeriesChart />
+                </div>
+
                 <!-- Add new components here -->
             </div>
         
@@ -34,6 +37,10 @@
             
             <div v-else-if="currentTab === 'scatter'" class="single-chart-view">
                 <TestScatterChart />
+            </div>
+
+            <div v-else-if="currentTab === 'time-series'" class="single-chart-view">
+                <TestTimeSeriesChart />
             </div>
 
             <!-- Add new component tabs here -->
@@ -46,12 +53,14 @@
 import { ref } from 'vue'
 import TestBarChart from './TestBarChart.vue'
 import TestScatterChart from './TestScatterChart.vue'
+import TestTimeSeriesChart from "./TestTimeSeriesChart.vue";
 
 // Tab configuration
 const tabs = [
 { id: 'all', name: 'All Charts' },
 { id: 'bar', name: 'Bar Chart' },
-{ id: 'scatter', name: 'Scatter Chart' }
+{ id: 'scatter', name: 'Scatter Chart' },
+{ id: 'time-series', name: 'Times Series Chart' }
 // Add new components here
 ]
 
@@ -77,12 +86,6 @@ h2 {
     padding-bottom: 8px;
     margin-top: 20px;
     margin-bottom: 15px;
-}
-
-.global-controls {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 20px;
 }
 
 .tab-controls {
