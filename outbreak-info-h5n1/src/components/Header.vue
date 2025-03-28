@@ -38,6 +38,12 @@
               DMS
             </router-link>
           </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/mutations"
+                         :class="{ active: $route.path === '/dms' }">
+              Mutations
+            </router-link>
+          </li>
         </ul>
       </div>
     </div>
