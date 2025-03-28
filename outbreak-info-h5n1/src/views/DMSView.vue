@@ -27,7 +27,7 @@
       :x-key="'dms'"
       :y-key="'count'"
       :title-key="'key'"
-      :point-color="'#4682B4'"
+      :point-color="outbreakInfoColorPalette[6]"
       :x-label="'DMS value'"
       :y-label="'Number of samples'"
       :log-scale="useLogScale"
@@ -38,7 +38,7 @@
 
 <script setup>
 import { ref, onMounted, watch } from 'vue';
-import { ScatterChart } from 'outbreakInfo';
+import { ScatterChart, outbreakInfoColorPalette } from 'outbreakInfo';
 import { getIntrahostVariantDMS } from '../services/elasticsearchApi.js';
 
 const selectedDmsField = ref('ferret sera escape');
