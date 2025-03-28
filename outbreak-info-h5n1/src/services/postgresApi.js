@@ -51,3 +51,26 @@ export async function getSampleReleaseDate() {
     return[];
   }
 }
+
+export async function getMutationFrequency(aa, nt = '') {
+  try {
+    let endpoint = `variants/frequency?aa=${encodeURIComponent(aa)}`;
+    
+    if (nt) {
+      endpoint += `&nt=${encodeURIComponent(nt)}`;
+    }
+    
+    const data = await makeRequest(endpoint);
+    
+    if (!Array.isArray(data)) {
+      return [];
+    }
+    
+    return data.map(item => ({
+      sra_id: item.accession || 'Unknown',
+      frequency: item.alt_freq || 0
+    }));
+  } catch (error) {
+    return [];
+  }
+}
