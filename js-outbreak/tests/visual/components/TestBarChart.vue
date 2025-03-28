@@ -1,4 +1,3 @@
-<!-- src/dev/TestBarChart.vue -->
 <template>
   <div class="test-container">
     <h1>BarChart Component Test</h1>
@@ -7,7 +6,7 @@
         :data="chartData"
         :width="width"
         :height="height"
-        :barColor="currentColor"
+        barColor="currentColor"
     />
 
     Vertical
@@ -15,7 +14,7 @@
         :data="chartData"
         :width="width"
         :height="height"
-        :barColor="currentColor"
+        barColor="currentColor"
         :horizontal="false"
         xLabel="key"
         yLabel="value"
@@ -26,10 +25,11 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import BarChart from '../../../src/components/BarChart.vue'
+import { colorPalette } from '../../../src/utils/colorSchemes'
 
 const width = ref(800)
 const height = ref(400)
-const currentColor = ref('#333333')
+const currentColor = colorPalette[7];
 
 const chartData = ref([
   {"key": "A", "value": 15},
