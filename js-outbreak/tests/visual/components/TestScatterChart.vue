@@ -1,4 +1,3 @@
-<!-- tests/visual/components/TestScatterChart.vue -->
 <template>
   <div class="test-container">
     <h1>ScatterChart Component Test</h1>
@@ -8,7 +7,7 @@
         :data="chartData"
         :width="width"
         :height="height"
-        :pointColor="currentColor"
+        pointColor="currentColor"
         xKey="valueX"
         yKey="valueY"
         xLabel="valueX"
@@ -35,10 +34,11 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import ScatterChart from '../../../src/components/ScatterChart.vue'
+import { colorPalette } from '../../../src/utils/colorSchemes'
 
 const width = ref(800)
 const height = ref(400)
-const currentColor = ref('#333333')
+const currentColor = colorPalette[10];
 
 const chartData = ref([
   {"valueX": 10, "valueY": 15},
@@ -64,25 +64,3 @@ const chartData = ref([
 ])
 
 </script>
-
-<style scoped>
-.test-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-button {
-  margin-top: 20px;
-  padding: 8px 16px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-</style>
