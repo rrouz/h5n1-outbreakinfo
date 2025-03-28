@@ -24,13 +24,11 @@
   
     chartContainer.value.innerHTML = '';
     
-    // Ensure dates are parsed properly
     const processedData = props.data.map(d => ({
       ...d,
       [props.dateKey]: d[props.dateKey] instanceof Date ? d[props.dateKey] : new Date(d[props.dateKey])
     }));
     
-    // Sort data by date
     processedData.sort((a, b) => a[props.dateKey] - b[props.dateKey]);
   
     // Create chart
