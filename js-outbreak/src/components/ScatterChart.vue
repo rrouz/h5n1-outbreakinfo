@@ -4,13 +4,14 @@
 
 <script setup>
 import { ref, onMounted, watch, onBeforeUnmount } from 'vue';
+import { defaultColor } from '../utils/colorSchemes';
 import * as Plot from '@observablehq/plot';
 
 const props = defineProps({
   data: { type: Array, required: true },
   xKey: { type: String, default: 'x' },
   yKey: { type: String, default: 'y' },
-  pointColor: { type: String, default: 'indianred' },
+  pointColor: { type: String, default: defaultColor},
   height: { type: Number, default: 500 },
   width: { type: Number, default: 800 },
   marginLeft: { type: Number, default: 50 },
