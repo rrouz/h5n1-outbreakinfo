@@ -27,7 +27,7 @@
       :x-key="'dms'"
       :y-key="'count'"
       :title-key="'key'"
-      :point-color="'indianred'"
+      :point-color="'#4682B4'"
       :x-label="'DMS value'"
       :y-label="'Number of samples'"
       :log-scale="useLogScale"
