@@ -4,6 +4,7 @@
 
 <script setup>
 import { ref, onMounted, watch, onBeforeUnmount } from 'vue';
+import { defaultColor } from '../utils/colorSchemes';
 import * as Plot from '@observablehq/plot';
 
 const props = defineProps({
@@ -13,7 +14,7 @@ const props = defineProps({
   width: { type: Number, default: 800 },
   marginLeft: { type: Number, default: 50 },
   marginBottom: { type: Number, default: 50 },
-  barColor: { type: String, default: '#4682B4' },
+  barColor: { type: String, default: defaultColor },
   xLabel: { type: String, default: 'value' },
   yLabel: { type: String, default: 'key' }
 });
