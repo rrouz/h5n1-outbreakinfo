@@ -28,6 +28,10 @@
                   <TestTimeSeriesChart />
                 </div>
 
+                <div class="chart-component">
+                  <TestMutationChart />
+                </div>
+
                 <!-- Add new components here -->
             </div>
         
@@ -43,6 +47,10 @@
                 <TestTimeSeriesChart />
             </div>
 
+            <div v-else-if="currentTab === 'mutation'" class="single-chart-view">
+                <TestMutationChart />
+            </div>
+
             <!-- Add new component tabs here -->
 
         </div>
@@ -54,13 +62,15 @@ import { ref } from 'vue'
 import TestBarChart from './TestBarChart.vue'
 import TestScatterChart from './TestScatterChart.vue'
 import TestTimeSeriesChart from "./TestTimeSeriesChart.vue";
+import TestMutationChart from './TestMutationChart.vue';
 
 // Tab configuration
 const tabs = [
 { id: 'all', name: 'All Charts' },
 { id: 'bar', name: 'Bar Chart' },
 { id: 'scatter', name: 'Scatter Chart' },
-{ id: 'time-series', name: 'Times Series Chart' }
+{ id: 'time-series', name: 'Times Series Chart' },
+{ id: 'mutation', name: 'Mutation Chart' }
 // Add new components here
 ]
 
