@@ -1,26 +1,43 @@
 <template>
   <div id="app">
     <header>
-      <h1>H5N1</h1>
-      <nav>
-        <router-link to="/isolations">Isolation Sources</router-link> | 
-        <router-link to="/hosts">Hosts</router-link> |
-        <router-link to="/DMS">DMS</router-link> |
-        <router-link to="/collection-end-dates">Collection Dates</router-link>
-      </nav>
+      <h1>H5N1 Dashboard</h1>
     </header>
     
     <main>
-      <router-view />
+      <section class="dashboard-section">
+        <IsolationSourceView />
+      </section>
+      
+      <section class="dashboard-section">
+        <HostSourceView />
+      </section>
+      
+      <section class="dashboard-section">
+        <DMSView />
+      </section>
+      
+      <section class="dashboard-section">
+        <ReleaseDateView />
+      </section>
     </main>
   </div>
 </template>
+
+<script setup>
+import IsolationSourceView from './views/IsolationSourceView.vue';
+import HostSourceView from './views/HostSourceView.vue';
+import DMSView from './views/DMSView.vue';
+import ReleaseDateView from './views/ReleaseDateView.vue';
+</script>
 
 <style>
 :root {
   --primary-color: #4682B4;
   --text-color: #333;
   --background-color: #f5f7fa;
+  --section-bg-color: #ffffff;
+  --border-color: #e0e0e0;
 }
 
 * {
@@ -49,13 +66,21 @@ header {
   text-align: center;
 }
 
+/* Navigation styles removed */
+
 main {
   flex: 1;
   padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 h1, h2, h3 {
   margin-bottom: 1rem;
+}
+
+h2 {
+  border-bottom: none;
 }
 
 select, button {
@@ -64,18 +89,12 @@ select, button {
   border: 1px solid #ccc;
 }
 
-nav {
-  margin-top: 0.5rem;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 0 0.5rem;
-}
-
-nav a.router-link-active {
-  font-weight: bold;
-  text-decoration: underline;
+.dashboard-section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: var(--section-bg-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  border: 1px solid var(--border-color);
 }
 </style>
