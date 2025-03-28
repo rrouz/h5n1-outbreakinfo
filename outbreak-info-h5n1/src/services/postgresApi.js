@@ -38,9 +38,9 @@ export async function getHostDistribution(size = 20) {
   }
 }
 
-export async function getSamplesByCollectionEndDate() {
+export async function getSampleReleaseDate() {
   try {
-    const data = await makeRequest("count/samples/by/collection_end_date");
+    const data = await makeRequest("count/samples/by/release_date");
     
     const formattedData = Array.isArray(data) 
       ? data.map(item => ({ key: item[0], value: item[1] }))
