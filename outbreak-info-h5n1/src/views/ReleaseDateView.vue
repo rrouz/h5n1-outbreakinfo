@@ -13,14 +13,14 @@
       :height="500"
       xLabel="Release Date"
       yLabel="Count"
-      :lineColor="'#2a5a8c'"
+      :lineColor="outbreakInfoColorPalette[3]"
     />
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import { TimeSeriesChart } from 'outbreakInfo';
+import { TimeSeriesChart, outbreakInfoColorPalette } from 'outbreakInfo';
 import { getSampleReleaseDate } from '../services/postgresApi.js';
 
 const chartData = ref([]);
