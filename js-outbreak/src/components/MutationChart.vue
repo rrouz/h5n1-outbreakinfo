@@ -20,7 +20,9 @@ const props = defineProps({
   yLabel: { type: String, default: '' },
   bins: { type: Array, default: () => [0, 0.01, 0.02, 0.03, 0.04, 0.05] },
   initialSortKey: { type: String, default: '' },
-  initialSortOrder: { type: String, default: 'desc' }
+  initialSortOrder: { type: String, default: 'desc' },
+  xMin: { type: Number, default: 0 },
+  xMax: { type: Number, default: 1 }
 });
 
 const chartContainer = ref(null);
@@ -129,15 +131,24 @@ function renderChart() {
     width: props.width * 0.4,
     x: {
       tickRotate: 45, 
-      label: props.xLabel, 
-      type: "band"
+      label: props.xLabel,
+      domain: [props.xMin, props.xMax]
     },
     y: {
       grid: true, 
       label: props.yLabel
     },
     marks: [
-      Plot.barY(frequencyData, {x: "key", y: "value", fill: props.barColor}),
+      Plot.rectY(props.data, 
+        Plot.binX(
+          {y: "count"},
+          {
+            x: d => parseFloat(d[props.frequencyKey]) || 0,
+            thresholds: props.bins,
+            fill: props.barColor
+          }
+        )
+      ),
       Plot.ruleY([0])
     ]
   });
