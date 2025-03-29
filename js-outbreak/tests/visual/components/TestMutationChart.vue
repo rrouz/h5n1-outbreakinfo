@@ -8,7 +8,6 @@
         placeholder="Search mutations..."
         class="search-input"
       />
-      <button @click="addRandomRow" class="btn">Add Random Row</button>
     </div>
     
     <div class="chart-wrapper">
