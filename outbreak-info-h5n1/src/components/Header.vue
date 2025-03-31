@@ -40,8 +40,14 @@
           </li>
           <li class="nav-item">
             <router-link class="nav-link" to="/mutations"
-                         :class="{ active: $route.path === '/dms' }">
+                         :class="{ active: $route.path === '/mutations' }">
               Mutations
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/prevalence"
+                         :class="{ active: $route.path === '/prevalence' }">
+              Prevalence
             </router-link>
           </li>
         </ul>
