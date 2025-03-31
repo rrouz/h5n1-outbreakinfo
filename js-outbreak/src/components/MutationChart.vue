@@ -18,7 +18,7 @@ const props = defineProps({
   barColor: { type: String, default: defaultColor },
   xLabel: { type: String, default: 'Frequency' },
   yLabel: { type: String, default: '' },
-  bins: { type: Array, default: () => [0, 0.01, 0.02, 0.03, 0.04, 0.05] },
+  bins: { type: Array, default: () => [0, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1] },
   initialSortKey: { type: String, default: '' },
   initialSortOrder: { type: String, default: 'desc' },
   xMin: { type: Number, default: 0 },
@@ -31,14 +31,15 @@ const sortOrder = ref(props.initialSortOrder);
 
 // Create frequency bins for histogram
 function createFrequencyBins() {
-  const bins = props.bins;
+  const binWidth = (props.xMax - props.xMin) / (props.bins.length - 1);
+  const bins = Array.from({ length: props.bins.length }, (_, i) => props.xMin + (i * binWidth));
   const counts = Array(bins.length).fill(0);
   
   props.data.forEach(item => {
     const freq = parseFloat(item[props.frequencyKey]) || 0;
     
     for (let i = 0; i < bins.length; i++) {
-      const max = i === bins.length - 1 ? Infinity : bins[i + 1];
+      const max = i === bins.length - 1 ? props.xMax : bins[i + 1];
       if (freq >= bins[i] && freq < max) {
         counts[i]++;
         break;
@@ -47,9 +48,8 @@ function createFrequencyBins() {
   });
   
   return bins.map((bin, index) => {
-    const label = index < bins.length - 1 
-      ? `${bin.toFixed(2)}-${bins[index + 1].toFixed(2)}`
-      : `${bin.toFixed(2)}+`;
+    const nextBin = index < bins.length - 1 ? bins[index + 1] : props.xMax;
+    const label = `${bin.toFixed(2)}-${nextBin.toFixed(2)}`;
     return { key: label, value: counts[index] };
   });
 }
@@ -132,7 +132,8 @@ function renderChart() {
     x: {
       tickRotate: 45, 
       label: props.xLabel,
-      domain: [props.xMin, props.xMax]
+      domain: [props.xMin, props.xMax],
+      ticks: props.bins.length
     },
     y: {
       grid: true, 
