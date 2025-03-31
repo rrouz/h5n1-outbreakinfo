@@ -111,8 +111,6 @@ function renderChart() {
   layout.className = 'histogram-table-layout';
   layout.style.display = 'flex';
   layout.style.width = '100%';
-  layout.style.border = '1px solid #e0e0e0';
-  layout.style.borderRadius = '8px';
   
   const chartPanel = document.createElement('div');
   chartPanel.style.padding = '20px 0 0 0';
@@ -163,7 +161,6 @@ function renderChart() {
   
   const table = document.createElement('table');
   table.style.width = '100%';
-  table.style.borderCollapse = 'collapse';
   
   const thead = document.createElement('thead');
   const headerRow = document.createElement('tr');
@@ -172,7 +169,6 @@ function renderChart() {
     const th = document.createElement('th');
     th.style.textAlign = 'left';
     th.style.padding = '8px 16px';
-    th.style.borderBottom = '1px solid #e0e0e0';
     th.style.cursor = 'pointer';
     
     th.textContent = column.label;
@@ -197,7 +193,6 @@ function renderChart() {
     props.columns.forEach(column => {
       const td = document.createElement('td');
       td.style.padding = '8px 16px';
-      td.style.borderBottom = '1px solid #e0e0e0';
       
       if (column.class === 'numeric') {
         td.style.textAlign = 'right';
