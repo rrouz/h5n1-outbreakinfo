@@ -4,6 +4,7 @@ import HostSourceView from '../views/HostSourceView.vue'
 import ReleaseDateView from '../views/ReleaseDateView.vue'
 import DMSView from '../views/DMSView.vue'
 import MutationView from '../views/MutationView.vue'
+import PrevalenceView from '../views/PrevalenceView.vue'
 
 const routes = [
     {
@@ -30,6 +31,11 @@ const routes = [
         path: '/mutations',
         name: 'Mutations',
         component: MutationView
+    },
+    {
+        path: '/prevalence',
+        name: 'Prevalence',
+        component: PrevalenceView
     }
 ]
 
