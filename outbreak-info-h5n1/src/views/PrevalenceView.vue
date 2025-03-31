@@ -1,23 +1,19 @@
 <template>
-  <div class="container-fluid px-4">
-    <div class="row justify-content-center">
-      <div class="col-12">
-        <h2 class="my-4">H5N1 Lineage Prevalence</h2>
-        <div class="card">
-          <div class="card-body">
-            <PrevalenceChart 
-              v-if="demixedData.length > 0"
-              :demixed-data="demixedData"
-              :height="500"
-              :width="1000"
-              :marginLeft="150"
-              :marginBottom="50"
-              :boxColor="outbreakInfoColorPalette.primary"
-            />
-            <div v-else class="text-center">
-              Loading data...
-            </div>
-          </div>
+  <div class="container mx-auto px-4 flex flex-col items-center">
+    <h2 class="my-4">H5N1 Lineage Prevalence</h2>
+    <div class="w-full max-w-screen-xl">
+      <div>
+        <PrevalenceChart 
+          v-if="demixedData.length > 0"
+          :demixed-data="demixedData"
+          :height="500"
+          :width="1000"
+          :marginLeft="150"
+          :marginBottom="50"
+          :boxColor="outbreakInfoColorPalette.primary"
+        />
+        <div v-else class="text-center">
+          Loading data...
         </div>
       </div>
     </div>
