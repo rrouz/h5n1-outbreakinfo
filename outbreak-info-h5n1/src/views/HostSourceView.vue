@@ -6,13 +6,14 @@
       :horizontal="horizontal"
       :height="500"
       :marginLeft="180"
+      :barColor="outbreakInfoColorPalette.primary"
     />
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import { BarChart } from 'outbreakInfo';
+import { BarChart, outbreakInfoColorPalette } from 'outbreakInfo';
 import { getHostDistribution } from '../services/postgresApi.js';
 
 const displayLimit = ref(20);
