@@ -123,24 +123,6 @@ export async function getTotalCountOfSamples() {
 }
 
 export async function getAllDemixed() {
-  try {
-    const response = await fetch(`${ES_BASE_URL}/demixed/_search`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        size: 10000
-      })
-    })
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`)
-    }
-
-    return await response.json()
-  } catch (error) {
-    console.error('Error fetching demixed data:', error)
-    throw error
-  }
+  const query = { size: 10000 };
+  return await makeRequest("demixed", query);
 }
