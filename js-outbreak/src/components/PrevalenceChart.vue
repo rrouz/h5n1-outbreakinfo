@@ -165,3 +165,13 @@ onBeforeUnmount(() => {
   if (boxPlotRef.value) boxPlotRef.value.innerHTML = ''
 })
 </script>
+
+<style scoped>
+.chart-container {
+  width: 100%;
+}
+
+.chart-subcontainer {
+  width: 100%;
+}
+</style>
